@@ -13,6 +13,9 @@
 		E140E57123CD558A0063E6D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E140E56F23CD558A0063E6D3 /* Main.storyboard */; };
 		E140E57323CD558A0063E6D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E140E57223CD558A0063E6D3 /* Assets.xcassets */; };
 		E140E57623CD558A0063E6D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E140E57423CD558A0063E6D3 /* LaunchScreen.storyboard */; };
+		E140E57E23CD6A180063E6D3 /* SpellerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140E57D23CD6A180063E6D3 /* SpellerBrain.swift */; };
+		E140E58023CD6B760063E6D3 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = E140E57F23CD6B760063E6D3 /* words.txt */; };
+		E15A1F5123F3027500E56AB5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15A1F4F23F2FA8600E56AB5 /* Word.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		E140E57223CD558A0063E6D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E140E57523CD558A0063E6D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E140E57723CD558A0063E6D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E140E57D23CD6A180063E6D3 /* SpellerBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellerBrain.swift; sourceTree = "<group>"; };
+		E140E57F23CD6B760063E6D3 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		E15A1F4F23F2FA8600E56AB5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				E140E56923CD558A0063E6D3 /* AppDelegate.swift */,
 				E140E56B23CD558A0063E6D3 /* SceneDelegate.swift */,
 				E140E56D23CD558A0063E6D3 /* ViewController.swift */,
+				E140E57D23CD6A180063E6D3 /* SpellerBrain.swift */,
+				E15A1F4F23F2FA8600E56AB5 /* Word.swift */,
+				E140E57F23CD6B760063E6D3 /* words.txt */,
 				E140E56F23CD558A0063E6D3 /* Main.storyboard */,
 				E140E57223CD558A0063E6D3 /* Assets.xcassets */,
 				E140E57423CD558A0063E6D3 /* LaunchScreen.storyboard */,
@@ -127,6 +136,7 @@
 			files = (
 				E140E57623CD558A0063E6D3 /* LaunchScreen.storyboard in Resources */,
 				E140E57323CD558A0063E6D3 /* Assets.xcassets in Resources */,
+				E140E58023CD6B760063E6D3 /* words.txt in Resources */,
 				E140E57123CD558A0063E6D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +150,9 @@
 			files = (
 				E140E56E23CD558A0063E6D3 /* ViewController.swift in Sources */,
 				E140E56A23CD558A0063E6D3 /* AppDelegate.swift in Sources */,
+				E15A1F5123F3027500E56AB5 /* Word.swift in Sources */,
 				E140E56C23CD558A0063E6D3 /* SceneDelegate.swift in Sources */,
+				E140E57E23CD6A180063E6D3 /* SpellerBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
