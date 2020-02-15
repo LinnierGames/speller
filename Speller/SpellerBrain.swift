@@ -24,7 +24,9 @@ class SpellerBrain {
     return self.currentWordString
   }
 
-  private let words = SpellerBrain.words
+  private let allWordData = SpellerBrain.words
+
+  private var wordDataPool: [WordData] = []
   private var currentWordString: String?
 
   func newGame(difficulty: SpellerDifficulty) -> Word {
@@ -32,7 +34,7 @@ class SpellerBrain {
     //    let lengthOfWord
     let percentageOfWordMissing = difficulty.precentageOfWordsMissing
 
-    let wordData = self.words.randomElement()!
+    let wordData = self.getWordData()
     self.currentWordString = wordData.word
 
     let maxNumberOfMissingLetters = Int(Float(wordData.word.count) * percentageOfWordMissing)
@@ -61,5 +63,16 @@ class SpellerBrain {
 
   func check(_ input: String) -> Bool {
     return input.lowercased() == self.currentWordString?.lowercased()
+  }
+
+  func getWordData() -> WordData {
+    if let wordDataFromPool = self.wordDataPool.popLast() {
+      return wordDataFromPool
+    }
+
+    self.wordDataPool = self.allWordData.shuffled()
+    assert(self.wordDataPool.isEmpty == false)
+
+    return self.getWordData()
   }
 }
