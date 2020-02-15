@@ -21,6 +21,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var wordTextFieldStackView: UIStackView!
   @IBOutlet weak var missingLettersSlider: UISlider!
 
+  private let synthesizer = AVSpeechSynthesizer()
+
   func startGame() {
     self.word = self.speller.newGame(difficulty: SpellerDifficulty(precentageOfWordsMissing: self.missingLettersSlider.value))
 
@@ -118,8 +120,7 @@ class ViewController: UIViewController {
     guard let answerToSpeak = self.speller.answer else { return }
 
     let utterance = AVSpeechUtterance(string: answerToSpeak)
-    let synthesizer = AVSpeechSynthesizer()
-    synthesizer.speak(utterance)
+    self.synthesizer.speak(utterance)
   }
 
   private func revealAnswer() {
