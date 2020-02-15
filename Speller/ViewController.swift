@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 
   let speller = SpellerBrain()
 
+  let mindfulnessSession = MindfullHealthKitService()
+
   var word: Word!
 
   @IBOutlet weak var imageViewHint: UIImageView!
@@ -82,12 +84,35 @@ class ViewController: UIViewController {
     self.revealAnswer()
   }
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.applicationDidBecomeActive),
+      name: UIApplication.didBecomeActiveNotification,
+      object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.applicationWillResignActive),
+      name: UIApplication.willResignActiveNotification,
+      object: nil)
+  }
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.startGame()
   }
 
   // MARK: - Private
+
+  @objc private func applicationDidBecomeActive() {
+    self.mindfulnessSession.startSession()
+  }
+
+  @objc private func applicationWillResignActive() {
+    self.mindfulnessSession.endSession()
+  }
 
   private func speakAnswer() {
     guard let answerToSpeak = self.speller.answer else { return }
@@ -125,10 +150,13 @@ class ViewController: UIViewController {
     }.reduce("", +)
 
     guard self.speller.check(input) else {
-      return self.displayMisspelledWord()
+      self.displayMisspelledWord()
+      self.mindfulnessSession.markIncorrect(word: self.speller.answer!)
+      return
     }
 
     self.displayCorrectSpelling()
+    self.mindfulnessSession.markCorrect(word: self.speller.answer!)
   }
 
   private func displayMisspelledWord() {
