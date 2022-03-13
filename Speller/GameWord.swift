@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Word: Collection {
+struct GameWord: Collection {
   var imageURL: URL?
 
   var startIndex: Int { return self.description.startIndex }
@@ -35,13 +35,18 @@ enum WordDescription {
   case missingLetter
 }
 
-struct WordData {
+protocol Word {
+  var word: String { get }
+  var imageURL: URL? { get }
+}
+
+struct WordRemoteData {
   let word: String
   let imageURL: URL?
 }
 
 extension SpellerBrain {
-  static let words: [WordData] = {
+  static let words: [Word] = {
     let dropBoxURL = "https://www.dropbox.com/s/9q65vdch12ifcfn/Speller.txt?raw=1"
     let data = try! Data(contentsOf: URL(string: dropBoxURL)!)
     let text = String(data: data, encoding: .utf8)!
@@ -51,9 +56,12 @@ extension SpellerBrain {
       guard components.count == 1 || components.count == 2 else { return nil }
       let url = components.count == 2 ? URL(string: String(components[1])) : nil
       let word = String(components[0]).replacingOccurrences(of: "\r", with: "")
-      return WordData(word: word, imageURL: url)
+      return WordRemoteData(word: word, imageURL: url)
     }
   }()
 }
 
-
+extension WordRemoteData: Word {
+}
+extension WordData: Word {
+}

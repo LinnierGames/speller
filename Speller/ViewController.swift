@@ -15,7 +15,7 @@ class ViewController: UIViewController {
   
   let mindfulnessSession = MindfullHealthKitService()
   
-  var word: Word!
+  var word: GameWord!
   
   @IBOutlet weak var imageViewHint: UIImageView!
   @IBOutlet weak var wordTextFieldStackView: UIStackView!

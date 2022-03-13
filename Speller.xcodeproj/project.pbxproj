@@ -16,7 +16,12 @@
 		E140E57623CD558A0063E6D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E140E57423CD558A0063E6D3 /* LaunchScreen.storyboard */; };
 		E140E57E23CD6A180063E6D3 /* SpellerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140E57D23CD6A180063E6D3 /* SpellerBrain.swift */; };
 		E140E58023CD6B760063E6D3 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = E140E57F23CD6B760063E6D3 /* words.txt */; };
-		E15A1F5123F3027500E56AB5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15A1F4F23F2FA8600E56AB5 /* Word.swift */; };
+		E15A1F5123F3027500E56AB5 /* GameWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15A1F4F23F2FA8600E56AB5 /* GameWord.swift */; };
+		E1CD70D927DD42760098DE0B /* WordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD70D827DD42760098DE0B /* WordsTableViewController.swift */; };
+		E1CD70DC27DD43490098DE0B /* WordsBank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1CD70DA27DD43490098DE0B /* WordsBank.xcdatamodeld */; };
+		E1CD70DF27DD437B0098DE0B /* WordData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD70DD27DD437B0098DE0B /* WordData+CoreDataClass.swift */; };
+		E1CD70E027DD437B0098DE0B /* WordData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD70DE27DD437B0098DE0B /* WordData+CoreDataProperties.swift */; };
+		E1CD70E227DD441F0098DE0B /* WordsBankStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD70E127DD441F0098DE0B /* WordsBankStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +37,12 @@
 		E140E57723CD558A0063E6D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E140E57D23CD6A180063E6D3 /* SpellerBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellerBrain.swift; sourceTree = "<group>"; };
 		E140E57F23CD6B760063E6D3 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
-		E15A1F4F23F2FA8600E56AB5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		E15A1F4F23F2FA8600E56AB5 /* GameWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWord.swift; sourceTree = "<group>"; };
+		E1CD70D827DD42760098DE0B /* WordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTableViewController.swift; sourceTree = "<group>"; };
+		E1CD70DB27DD43490098DE0B /* WordsBank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordsBank.xcdatamodel; sourceTree = "<group>"; };
+		E1CD70DD27DD437B0098DE0B /* WordData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1CD70DE27DD437B0098DE0B /* WordData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1CD70E127DD441F0098DE0B /* WordsBankStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsBankStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +88,19 @@
 				E1309E8B23F88B1D00593890 /* Speller.entitlements */,
 				E140E56923CD558A0063E6D3 /* AppDelegate.swift */,
 				E140E56D23CD558A0063E6D3 /* ViewController.swift */,
+				E1CD70D827DD42760098DE0B /* WordsTableViewController.swift */,
 				E140E57D23CD6A180063E6D3 /* SpellerBrain.swift */,
-				E15A1F4F23F2FA8600E56AB5 /* Word.swift */,
+				E1CD70E127DD441F0098DE0B /* WordsBankStore.swift */,
+				E15A1F4F23F2FA8600E56AB5 /* GameWord.swift */,
 				E140E57F23CD6B760063E6D3 /* words.txt */,
 				E140E56F23CD558A0063E6D3 /* Main.storyboard */,
 				E140E57223CD558A0063E6D3 /* Assets.xcassets */,
 				E140E57423CD558A0063E6D3 /* LaunchScreen.storyboard */,
 				E140E57723CD558A0063E6D3 /* Info.plist */,
 				E1309E8923F8877C00593890 /* MindfullHealthKit.swift */,
+				E1CD70DA27DD43490098DE0B /* WordsBank.xcdatamodeld */,
+				E1CD70DD27DD437B0098DE0B /* WordData+CoreDataClass.swift */,
+				E1CD70DE27DD437B0098DE0B /* WordData+CoreDataProperties.swift */,
 			);
 			path = Speller;
 			sourceTree = "<group>";
@@ -163,10 +178,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1309E8A23F8877C00593890 /* MindfullHealthKit.swift in Sources */,
+				E1CD70DF27DD437B0098DE0B /* WordData+CoreDataClass.swift in Sources */,
 				E140E56E23CD558A0063E6D3 /* ViewController.swift in Sources */,
+				E1CD70E027DD437B0098DE0B /* WordData+CoreDataProperties.swift in Sources */,
 				E140E56A23CD558A0063E6D3 /* AppDelegate.swift in Sources */,
-				E15A1F5123F3027500E56AB5 /* Word.swift in Sources */,
+				E1CD70E227DD441F0098DE0B /* WordsBankStore.swift in Sources */,
+				E1CD70DC27DD43490098DE0B /* WordsBank.xcdatamodeld in Sources */,
+				E15A1F5123F3027500E56AB5 /* GameWord.swift in Sources */,
 				E140E57E23CD6A180063E6D3 /* SpellerBrain.swift in Sources */,
+				E1CD70D927DD42760098DE0B /* WordsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +386,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E1CD70DA27DD43490098DE0B /* WordsBank.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E1CD70DB27DD43490098DE0B /* WordsBank.xcdatamodel */,
+			);
+			currentVersion = E1CD70DB27DD43490098DE0B /* WordsBank.xcdatamodel */;
+			path = WordsBank.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E140E55E23CD558A0063E6D3 /* Project object */;
 }

@@ -24,12 +24,15 @@ class SpellerBrain {
     return self.currentWordString
   }
 
-  private let allWordData = SpellerBrain.words
+  private let allRemoteWords = SpellerBrain.words
+  private var allPersistentWord: [Word] {
+    WordsBankStore.shared.words()
+  }
 
-  private var wordDataPool: [WordData] = []
+  private var wordDataPool: [Word] = []
   private var currentWordString: String?
 
-  func newGame(difficulty: SpellerDifficulty) -> Word {
+  func newGame(difficulty: SpellerDifficulty) -> GameWord {
 
     //    let lengthOfWord
     let percentageOfWordMissing = difficulty.precentageOfWordsMissing
@@ -56,7 +59,7 @@ class SpellerBrain {
 
     guard nMissingLetters > 0 else { return self.newGame(difficulty: difficulty) }
 
-    let w = Word(description: wordDescriptions, imageURL: wordData.imageURL)
+    let w = GameWord(description: wordDescriptions, imageURL: wordData.imageURL)
 
     return w
   }
@@ -65,12 +68,12 @@ class SpellerBrain {
     return input.lowercased() == self.currentWordString?.lowercased()
   }
 
-  func getWordData() -> WordData {
+  func getWordData() -> Word {
     if let wordDataFromPool = self.wordDataPool.popLast() {
       return wordDataFromPool
     }
 
-    self.wordDataPool = self.allWordData.shuffled()
+    self.wordDataPool = allRemoteWords + allPersistentWord
     assert(self.wordDataPool.isEmpty == false)
 
     return self.getWordData()
